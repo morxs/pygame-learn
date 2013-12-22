@@ -78,33 +78,6 @@ def main():
 
 
         # ALL GAME LOGIC SHOULD GO BELOW THIS COMMENT
-
-        # ALL GAME LOGIC SHOULD GO ABOVE THIS COMMENT
-
-
-        # ALL CODE TO DRAW SHOULD GO BELOW THIS COMMENT
-        pygame.draw.line(screen, LIGHT_GRAY, [GUTTER_WIDTH, 0], [GUTTER_WIDTH, SIZE[1]], 1)
-        pygame.draw.line(screen, LIGHT_GRAY, [SIZE[0]-GUTTER_WIDTH, 0], [SIZE[0]-GUTTER_WIDTH, SIZE[1]], 1)
-        pygame.draw.line(screen, LIGHT_GRAY, [SIZE[0]/2, 0], [SIZE[0]/2, SIZE[1]], 1)
-
-        #baseSurf = screen.copy()
-
-        # print text
-        text_p1 = font.render(str(player1_score), True, LIGHT_GRAY)
-        text_p2 = font.render(str(player2_score), True, LIGHT_GRAY)
-        text_rect_p1 = text_p1.get_rect()
-        text_rect_p1.center = (SIZE[0]/4, TEXT_Y_POS)
-        text_rect_p2 = text_p1.get_rect()
-        text_rect_p2.center = (SIZE[0]/4*3, TEXT_Y_POS)
-        screen.blit(text_p1, text_rect_p1)
-        screen.blit(text_p2, text_rect_p2)
-
-        # initialize left player
-        pygame.draw.line(screen, GREEN, [HALF_GUTTER_WIDTH, paddle1_pos+paddle1_vel], [HALF_GUTTER_WIDTH,PAD_HEIGHT+paddle1_pos+paddle1_vel], GUTTER_WIDTH)
-
-        # initialize right player
-        pygame.draw.line(screen, RED, [SIZE[0]-HALF_GUTTER_WIDTH, paddle2_pos+paddle2_vel], [SIZE[0]-HALF_GUTTER_WIDTH, PAD_HEIGHT+paddle2_pos+paddle2_vel], GUTTER_WIDTH)
-
         # ball bouncing here and there
         ball_pos[0] += ball_vel[0]
         ball_pos[1] += ball_vel[1]
@@ -142,6 +115,33 @@ def main():
             ball_pos[1] = 0 + BALL_RADIUS
             ball_vel[1] *= -1
             #ball_vel[1] += add_more_velocity(ball_vel[1])
+        # ALL GAME LOGIC SHOULD GO ABOVE THIS COMMENT
+
+
+        # ALL CODE TO DRAW SHOULD GO BELOW THIS COMMENT
+        pygame.draw.line(screen, LIGHT_GRAY, [GUTTER_WIDTH, 0], [GUTTER_WIDTH, SIZE[1]], 1)
+        pygame.draw.line(screen, LIGHT_GRAY, [SIZE[0]-GUTTER_WIDTH, 0], [SIZE[0]-GUTTER_WIDTH, SIZE[1]], 1)
+        pygame.draw.line(screen, LIGHT_GRAY, [SIZE[0]/2, 0], [SIZE[0]/2, SIZE[1]], 1)
+
+        #baseSurf = screen.copy()
+
+        # print text
+        text_p1 = font.render(str(player1_score), True, LIGHT_GRAY)
+        text_p2 = font.render(str(player2_score), True, LIGHT_GRAY)
+        text_rect_p1 = text_p1.get_rect()
+        text_rect_p1.center = (SIZE[0]/4, TEXT_Y_POS)
+        text_rect_p2 = text_p1.get_rect()
+        text_rect_p2.center = (SIZE[0]/4*3, TEXT_Y_POS)
+        screen.blit(text_p1, text_rect_p1)
+        screen.blit(text_p2, text_rect_p2)
+
+        # initialize left player
+        pygame.draw.line(screen, GREEN, [HALF_GUTTER_WIDTH, paddle1_pos+paddle1_vel], [HALF_GUTTER_WIDTH,PAD_HEIGHT+paddle1_pos+paddle1_vel], GUTTER_WIDTH)
+
+        # initialize right player
+        pygame.draw.line(screen, RED, [SIZE[0]-HALF_GUTTER_WIDTH, paddle2_pos+paddle2_vel], [SIZE[0]-HALF_GUTTER_WIDTH, PAD_HEIGHT+paddle2_pos+paddle2_vel], GUTTER_WIDTH)
+
+        ### last time this place is holding logics
 
         pygame.draw.circle(screen, WHITE, [int(ball_pos[0]), int(ball_pos[1])] , BALL_RADIUS)
         #print(ball_vel)
